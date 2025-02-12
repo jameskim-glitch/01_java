@@ -41,10 +41,13 @@ public class VarableExample4 {
 		//44085 
 		int iNum2 = 44085;
 				System.out.println((char)iNum2); // 갵
+				
+				//오버플로우 현상은 컴퓨터가 미리 예측할 수 없다. 
+				//-> 개발자가 미리 예측해야 함.
 		
 		int i6 = 2147483647; // int 최대값
 		int result2 = i6 + 1;
-		System.out.println(result2);
+		System.out.println(result2); // -2147483648
 		
 		
 		
