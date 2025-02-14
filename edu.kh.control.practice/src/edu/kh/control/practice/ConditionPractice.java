@@ -199,7 +199,29 @@ BMI가30이상일경우고도비만
 //전체적으로 result 를 만들지 않고 
 //그냥 프린트 아웃을 만들어서 손해를 본게 많았다.
 //이러면 추후 수정도 힘들어지니 result 만드는걸 중요하게 보자.
-
+/*		System.out.println("================= 결과 =================");
+		
+		if(attendance <= 20 * 0.7) { // 출석 만족 못했을 때 (70% 이상 출석했는지)
+			// 총 강의 횟수 : 20
+			// 결석 기준 : 0.3
+			// (1 - 0.3) = 0.7 -> 70 % 이상 출석해야한다는 의미
+			System.out.println("Fail [출석 횟수 부족] (" + (int)attendance + "/20)");
+			
+		} else { // 출석 만족 시
+			
+			System.out.printf("중간 고사 점수(20) : %.1f \n", midTerm);
+			System.out.printf("기말 고사 점수(30) : %.1f \n", finalTerm);
+			System.out.printf("과제 점수(30) : %.1f \n", report);
+			System.out.printf("출석 점수(20) : %.1f \n", attendance);
+			
+			double sum = midTerm + finalTerm + report + attendance;
+			
+			System.out.printf("총점 : %.1f \n", sum);
+			
+			if(sum >= 70) {
+				System.out.println("PASS");
+			} else {
+				System.out.println("Fail [점수미달]");*/
 		
 		
 

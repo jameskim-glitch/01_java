@@ -181,35 +181,32 @@ public class ConditionExample { // 기능 제공용 클래스
 	}
 	
 	public void ex7() {
-		//놀이기구 탑승 제한 검사
-		//나이가 12세 이상, 키 140.0 이상일 경우에만 "탑승가능
-		//나이가 12세 미만인 경우 : "적정 연령이 아닙니다."
-		//키가 140.0 미만 : "적정 키가 아닙니다"
-		//나이가 0세 미만, 100세 초과시 : 잘못 입력하셨습니다
+		/*
+		 * 중간고사, 기말고사, 과제점수, 출석횟수를 입력하고 
+		 * Pass 또는 Fail을 출력하세요.
+		평가 비율은 중간고사 20%, 기말고사 30%, 과제 30%, 출석 20%로 이루어져 있고
+		이 때, 출석 횟수는 총 강의 횟수 20회 중에서 출석한 날만 따진 값으로 계산하세요.
+		70점 이상일 경우 Pass, 70점 미만이거나 전체 강의에 30% 이상 결석 시 Fail을 출력하세요.
+		 * */
 		
-		//[실행화면]
-		//나이 입력 : 10
-		//키 입력 : 160
-		//적정 연령이 아닙니다
 		
-		System.out.print("나이 입력 : ");
-		int age = sc.nextInt();
-				//System.out.print("키 입력 : ");
-				//double height = sc.nextDouble();
-				String result;
-				
-				if (age < 0 || age >100) {
-					result = "잘못 입력하셨습니다";
-				} else System.out.print("키 입력 : ");
-				double height = sc.nextDouble();
-				
-				if (age < 12) {
-					result = "적정 나이가 아닙니다.";
-				} else if (height < 140) {
-					result = "적정 키가 아닙니다.";
-				} else {
-					System.out.println("탑승 가능");
-				}
+		System.out.print("중간 고사 점수 : ");
+		double midTerm = sc.nextDouble();
+		
+		System.out.print("기말 고사 점수 : ");
+		double finalTerm = sc.nextDouble();
+		
+		System.out.print("과제 점수 : ");
+		double report = sc.nextDouble();
+		
+		System.out.print("출석 횟수 : ");
+		double attendance = sc.nextDouble();
+		
+		// 각각의 점수를 비율에 맞게 변경
+		midTerm *= 0.2; // midTerm = (int) midTerm * 0.2;
+		//midTerm = midTerm * 0.2;
+		finalTerm *= 0.3;
+		report *= 0.3;
 				//틀린 내가 짠 코드
 				//} else if (age <12) {
 					//result = "적정 나이가 아닙니다";
@@ -218,7 +215,30 @@ public class ConditionExample { // 기능 제공용 클래스
 				//} else {
 					//result = "탑승 가능";
 				//}
-				//System.out.println(result);
+				//		System.out.println("================= 결과 =================");
+				
+				if(attendance <= 20 * 0.7) { // 출석 만족 못했을 때 (70% 이상 출석했는지)
+					// 총 강의 횟수 : 20
+					// 결석 기준 : 0.3
+					// (1 - 0.3) = 0.7 -> 70 % 이상 출석해야한다는 의미
+					System.out.println("Fail [출석 횟수 부족] (" + (int)attendance + "/20)");
+					
+				} else { // 출석 만족 시
+					
+					System.out.printf("중간 고사 점수(20) : %.1f \n", midTerm);
+					System.out.printf("기말 고사 점수(30) : %.1f \n", finalTerm);
+					System.out.printf("과제 점수(30) : %.1f \n", report);
+					System.out.printf("출석 점수(20) : %.1f \n", attendance);
+					
+					double sum = midTerm + finalTerm + report + attendance;
+					
+					System.out.printf("총점 : %.1f \n", sum);
+					
+					if(sum >= 70) {
+						System.out.println("PASS");
+					} else {
+						System.out.println("Fail [점수미달]");
+						}}
 	}
 	
 	public void ex8() {
