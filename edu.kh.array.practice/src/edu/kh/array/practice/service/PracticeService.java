@@ -74,25 +74,28 @@ System.out.println("홀수 번째 인덱스 합 : "+ sum);  }
 	public void practice5() {
         System.out.print("문자열: ");
         String word = sc.next();
-
-        System.out.print("문자: ");
-        char searchChar = sc.next().charAt(0); // 문자 하나 입력받기
-
-        char[] charArray = word.toCharArray(); // 문자열을 문자 배열로 변환
-
-        int count = 0; // 검색 문자의 개수
-        StringBuilder indexes = new StringBuilder(); // 검색 문자의 인덱스를 저장할 StringBuilder
-
-        for (int i = 0; i < charArray.length; i++) {
-            if (charArray[i] == searchChar) {
-                count++;
-                indexes.append(i).append(" ");
-            }
+        char[] words = new char[word.length()];
+        for (int i = 0; i < word.length(); i++) {
+            words[i] = word.charAt(i);
         }
 
-        System.out.println(word + "에 " + searchChar + "가 존재하는 위치(인덱스) : " + indexes);
-        System.out.println(searchChar + " 개수: " + count);		
-	}
+        System.out.print("문자: ");
+        char ap = sc.next().charAt(0);
+
+        int count = 0;
+
+        System.out.printf("%s에 %c가 존재하는 위치 : ", word, ap);
+
+        for (int i = 0; i < words.length; i++) {
+            if (words[i] == ap) {
+                System.out.print(i + " "); // 위치 출력
+                count++;
+            }
+        }
+        System.out.println(); // 줄바꿈
+
+        System.out.print(ap + " 개수 : " + count);
+        }
 	public void practice6() {
 		System.out.print("정수 입력 : ");
 		int input = sc.nextInt();
@@ -213,9 +216,75 @@ System.out.println("홀수 번째 인덱스 합 : "+ sum);  }
 		System.out.println(Arrays.toString(lotto));
 	}
 	public void practice13() {
+        Scanner sc = new Scanner(System.in);
+
         System.out.print("문자열: ");
         String word = sc.next();
-        String[] words = int[word.length()];
-        
-	}
+
+        char[] charArray = new char[word.length()]; // 문자 배열 생성
+        int charCount = 0; // 문자 개수
+
+        for (int i = 0; i < word.length(); i++) {
+            char currentChar = word.charAt(i);
+
+            // 현재 문자 이전의 문자들과 비교하여 중복 확인
+            boolean found = false;
+            for (int j = 0; j < charCount; j++) {
+                if (charArray[j] == currentChar) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                charArray[charCount++] = currentChar;
+            }
+        }
+
+        System.out.print("문자열에 있는 문자: ");
+        for (int i = 0; i < charCount; i++) {
+            System.out.print(charArray[i]);
+            if (i < charCount - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println();
+        System.out.println("문자 개수: " + charCount);
+        }
+	public void practice14() {
+        System.out.print("배열의 크기를 입력하세요: ");
+        int size = sc.nextInt();
+        sc.nextLine(); // 버퍼 비우기
+
+        String[] arr = new String[size];
+
+        for (int i = 0; i < size; i++) {
+            System.out.print(" " + (i + 1) + "번째 문자열: ");
+            arr[i] = sc.nextLine();
+        }
+
+        while (true) {
+            System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+            char answer = sc.nextLine().charAt(0);
+
+            if (answer == 'N' || answer == 'n') {
+                break;
+            } else if (answer == 'Y' || answer == 'y') {
+                System.out.print("더 입력하고 싶은 개수: ");
+                int addSize = sc.nextInt();
+                sc.nextLine(); // 버퍼 비우기
+
+                String[] tempArr = Arrays.copyOf(arr, arr.length + addSize); // 배열 확장
+
+                for (int i = arr.length; i < tempArr.length; i++) {
+                    System.out.print(" " + (i + 1) + "번째 문자열: ");
+                    tempArr[i] = sc.nextLine();
+                }
+                arr = tempArr; // 확장된 배열로 교체
+            } else {
+                System.out.println("잘못된 입력입니다. Y 또는 N을 입력해주세요.");
+            }
+        }
+
+        System.out.println(Arrays.toString(arr));
+    }
 }
