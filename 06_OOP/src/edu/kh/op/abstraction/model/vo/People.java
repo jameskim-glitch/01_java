@@ -95,11 +95,15 @@ public class People { // 국민(사람) 클래스
 		return age;
 	}
 	public void setAge(int age) {
-		if (age > 0) {
+		// 메서드 (기능) 형태인 getter/setter 를 이용하면 본인이 원하는 기능을 추가할 수 있음
+		// age 가 0보다 작을때 예외 발생시키기
+		// age 가 0보다 클 때 전달받은 값 세팅하기
+		if (age >= 0) {
 			this.age = age ;
 		} else {
 			throw new IllegalArgumentException("나이는 음수가 안됩니다");
 		// IlleglaAgumentException
+			// 메서드에 전달된 인자가 잘못되었을때 console 창에 전달된다.
 		}
 	}
 	public void setName(String name) {
