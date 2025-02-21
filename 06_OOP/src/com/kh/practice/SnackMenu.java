@@ -17,13 +17,16 @@ public void menu() {
 	int numOf = sc.nextInt();
 	System.out.print("가격 : ");
 	int price = sc.nextInt();
-	System.out.println("저장완료되었습니다.");
-	System.out.print("저장된 정보를 확인하시겠습니까?(y/n) : ");
-	String confirmData = sc.next();
+	System.out.print( scr.saveData(kind, name, flavor, numOf, price) );
 	
-	if (confirmData == "y") {
-		System.out.println(scr.getSaveData());
+	String result = sc.next(); // y or n
+	
+	if(result.equals("y")) {
+		// 저장된 데이터를 출력
+		System.out.println(scr.confirmData());
 	}
+	
+	
 	
 }
 
