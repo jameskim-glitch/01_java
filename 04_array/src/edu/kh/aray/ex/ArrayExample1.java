@@ -49,7 +49,7 @@ public class ArrayExample1 {
 		System.out.println(arr[0]);
 		System.out.println(arr[1]);
 		System.out.println(arr[2]);
-		// heap영ㅇ역에 생성된 공간은 절대 비어있을 수 없다
+		// heap영역에 생성된 공간은 절대 비어있을 수 없다
 		// => JVM 기본값이 들어가져이있다
 		// boolean : false
 		// 나머지 : 0
