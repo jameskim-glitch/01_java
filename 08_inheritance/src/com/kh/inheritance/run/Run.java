@@ -18,3 +18,4 @@ public class Run {
 		BasicPhone bp = new BasicPhone("Nokia", "3310", 2000, 100000, true);
 		bp.printInfo(); // 오버라이딩 X -> Phone(부모)의 메서드
 		bp.checkKeyboard();
+	}}
