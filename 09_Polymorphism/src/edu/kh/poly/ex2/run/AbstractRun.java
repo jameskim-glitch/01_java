@@ -1,7 +1,7 @@
 package edu.kh.poly.ex2.run;
 
 import edu.kh.poly.ex2.model.service.Calculator;
-import edu.kh.poly.ex2.model.service.KDJcalculator;
+import edu.kh.poly.ex2.model.service.KDJCalculator;
 
 public class AbstractRun {
 
@@ -10,7 +10,7 @@ public class AbstractRun {
 		//new AbstractService().ex1();
 		// ==================================
 		
-		Calculator cal = new KDJcalculator();
+		Calculator cal = new KDJCalculator();
 		
 		System.out.println("합 : " + cal.plus(20,30));
 		System.out.println("차 : " + cal.minus(20,30));
